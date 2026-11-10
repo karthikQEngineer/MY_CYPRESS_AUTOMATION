@@ -2,6 +2,10 @@ describe("testing git", ()=>
 {
     it("git",()=>
     {
-        ("practice and practice ")
+
+       cy.log ("practice and practice ")
+
+        cy.log("github conflict changes ")
+ 
     })
 })
