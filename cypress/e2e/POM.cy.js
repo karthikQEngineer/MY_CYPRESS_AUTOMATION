@@ -23,6 +23,7 @@ describe("testing POM pattern", ()=>
                karthiklogin.setmyusername("student")
                 karthiklogin.setmypassword("Password123")
                 karthiklogin.setmysubmit()
+                cy.log("testing")
 
                
 })
