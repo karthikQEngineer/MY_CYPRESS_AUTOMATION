@@ -10,6 +10,7 @@ describe('handling alerts and popups',()=>
           //  expect(alertt).to.contains('I am a JS Alert')
        // })
         cy.on('window:confirm',()=>true);
+        cy.log("testing")
     })
 }
 )
