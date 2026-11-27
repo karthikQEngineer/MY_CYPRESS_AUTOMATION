@@ -1,10 +1,11 @@
 describe("testing dropdown",()=>
 {
- it ("country dropdown",()=>
+ it .only("country dropdown",()=>
 {
 
     cy.visit("https://testautomationpractice.blogspot.com/")
     cy.get("#country").select('India').should("have.value",'india')
+    cy.screenshot()
 }
     )
 

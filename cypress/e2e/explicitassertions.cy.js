@@ -15,7 +15,7 @@ describe("explicit",()=>
             //BDD
             let myactualname=x.text();
             expect(myactualname).to.equal(myexpectedname)
-            expect(myactualname).to.not.equal(myexpectedname)
+            //expect(myactualname).to.not.equal(myexpectedname)
 
             //TDD
             assert.equal(myactualname,myexpectedname)

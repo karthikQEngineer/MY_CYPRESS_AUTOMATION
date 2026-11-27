@@ -26,6 +26,10 @@
 /// <reference types="cypress" />
 /// <reference types="@cypress/xpath" />
 
+//const cypress = require("cypress")
+
+//const cypress = require("cypress")
+
 Cypress.Commands.add("myowniframe",(iframe)=>{
  return cy.get(iframe)
         .its('0.contentDocument.body')
@@ -44,7 +48,55 @@ Cypress.Commands.add("karthikcustom", (abc,def)=>
 
 Cypress.Commands.add("mykarthikcustom2",( userloginname,userpassword)=>
 {
-cy.get("#username").type(userloginname)
-cy.get("#password").type(userpassword)
-cy.get('#submit-login').click().wait(4000)
+ cy.get("input[placeholder='Username']").type(userloginname)
+        cy.get("input[placeholder='Password']").type(userpassword)
+            cy.get("button[type='submit']").click()
+           
+})
+
+
+Cypress.Commands.add('orangelogin',()=>
+{
+     cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+        cy.get("input[placeholder='Username']").type("Admin")
+        cy.get("input[placeholder='Password']").type("admin123").wait(3000)
+        cy.get("button[type='submit']").click()
+
+       
+})
+
+Cypress.Commands.add("customapi",()=>
+{
+    cy.request({
+            method:'GET',
+            url:'https://reqres.in/api/users/2'
+
+        })
+})
+
+
+Cypress.Commands.add("tokentoekntoken",()=>
+{
+    return cy.request({
+            method:'POST',
+            url:'https://simple-books-api.click/api-clients/',
+             failOnStatusCode: false,
+            body:{
+   clientName: "Hakan",
+   clientEmail: Math.random().toString(8).substring(4)+"@gmail.com"
+}
+        }).then( (Response)=>
+        {
+            expect(Response.status).to.eq(201)
+            return  Response.body.accessToken
+        })
+})
+
+
+
+Cypress.Commands.add("chatcheck",(user,pass )=>
+{
+       cy.get("input[placeholder='Username']").type(user)
+        cy.get("input[placeholder='Password']").type(pass)
+        cy.get("button[type='submit']").click()  
 })
